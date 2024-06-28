@@ -19,4 +19,5 @@ class CreateUser(Interactor[CreateUserInput, bool]):
         if await self.user_repo.exists_with_tg_id(data.tg_id):
             return False
         await self.user_repo.create(data.tg_id)
+        await self.uow.commit()
         return True
