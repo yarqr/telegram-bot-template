@@ -22,6 +22,12 @@ alembic = "^1.13.2"
 sqlalchemy = "^2.0.31"
 asyncpg = "^0.29.0"
 
+
+[tool.poetry.group.telegram.dependencies]
+aiogram-dialog = "^2.1.0"
+dishka = "^1.2.0"
+redis = "^5.0.7"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
