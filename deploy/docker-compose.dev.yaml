@@ -1,0 +1,21 @@
+services:
+  redis:
+    image: "redis:7.2-alpine"
+    restart: "always"
+    volumes:
+      - "redis-data:/data"
+    ports:
+      - "6379:6379"
+  postgres:
+    image: "postgres:16.3-alpine"
+    restart: "always"
+    environment:
+      POSTGRES_PASSWORD: "very_hard_password"
+    volumes:
+      - "postgres-data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+
+volumes:
+  redis-data:
+  postgres-data:
