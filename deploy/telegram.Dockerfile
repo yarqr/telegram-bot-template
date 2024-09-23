@@ -1,4 +1,4 @@
-FROM python:3.11-slim as base
+FROM python:3.11-slim AS base
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=true
 
 COPY pyproject.toml poetry.lock ./
-RUN pip install --no-cache-dir poetry
+RUN pip install --no-cache-dir poetry==1.8
 RUN poetry install --with=infra,telegram --no-cache
 
 FROM python:3.11-slim
